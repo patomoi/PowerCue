@@ -1,0 +1,7 @@
+# Finales de linea: Windows necesita CRLF en .bat/.ps1; Linux, LF en el resto
+*.bat   text eol=crlf
+*.ps1   text eol=crlf
+*.sh    text eol=lf
+*.py    text eol=lf
+*.pyw   text eol=lf
+*.md    text eol=lf
