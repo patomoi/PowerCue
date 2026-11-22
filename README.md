@@ -61,8 +61,6 @@ powercue-gui.bat -Preset 2 -ModoDebug
 
 `presets.ini` (`preset1=45` … `preset4=`, en minutos; vacío = sin configurar) y `settings.ini` (`accion=apagar`, `ultimo=m:45` o `ultimo=h:23:30`).
 
-Las versiones anteriores al cambio de nombre usaban la carpeta `PowerTimer`. No hay migración: los presets antiguos no se importan.
-
 ## Limitaciones conocidas
 
 Ver [`docs/NOTAS-DE-DESARROLLO.md`](docs/NOTAS-DE-DESARROLLO.md).
