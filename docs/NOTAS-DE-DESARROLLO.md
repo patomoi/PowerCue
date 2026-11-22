@@ -25,8 +25,8 @@
 ## Pendientes
 
 - PowerShell: «pequeños errores visuales» reportados sin detalle; confirmar si persisten tras el rediseño ancho.
-- Probar `PowerTimer_cli.bat` en Windows (la más delicada por las particularidades de batch).
-- Probar la ventana de Python en pantalla real tras el rediseño ancho.
+- Probar `tminus.bat` en Windows (la más delicada por las particularidades de batch).
+
 
 ## Limitaciones conocidas
 
@@ -38,5 +38,5 @@
 ## Codificación y finales de línea
 
 `.gitattributes` fuerza CRLF en `.bat` y `.ps1`, y LF en `.sh`, `.py` y `.pyw`.
-`PowerTimer.ps1` debe conservar UTF-8 **con BOM**: git no lo quita, pero algunos editores sí al guardar.
-Para que el `.sh` quede ejecutable en el repo: `git update-index --chmod=+x src/shell/powertimer.sh`.
+`tminus.ps1` debe conservar UTF-8 **con BOM**: git no lo quita, pero algunos editores sí al guardar.
+Para que el `.sh` quede ejecutable en el repo: `git update-index --chmod=+x src/shell/tminus.sh`.

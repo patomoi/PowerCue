@@ -1,4 +1,4 @@
-# PowerTimer
+# T-Minus Shutdown
 
 Programador de apagado y otras acciones de energía (apagar, reiniciar, suspender, hibernar).
 Empezó con el nombre «proyect shutdown». Autor original: Patomoi.
@@ -9,11 +9,11 @@ Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Li
 
 | Carpeta | Archivo | Qué es | Requisitos |
 |---|---|---|---|
-| `src/python/` | `powertimer_gui.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
-| `src/powershell/` | `PowerTimer.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
-| `src/powershell/` | `PowerTimer.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `PowerTimer.ps1` |
-| `src/batch/` | `PowerTimer_cli.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |
-| `src/shell/` | `powertimer.sh` | Versión de texto para Linux | bash 4+ y `date` de GNU |
+| `src/python/` | `tminus_gui.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
+| `src/powershell/` | `tminus.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
+| `src/powershell/` | `tminus.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `tminus.ps1` |
+| `src/batch/` | `tminus.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |
+| `src/shell/` | `tminus.sh` | Versión de texto para Linux | bash 4+ y `date` de GNU |
 
 Las cuatro comparten sintaxis de línea de comandos y archivos de configuración.
 
@@ -48,23 +48,19 @@ Códigos de salida (versiones de texto): `0` terminó, `1` cancelado, `2` argume
 Ejemplos:
 
 ```
-./powertimer.sh 1h30 --accion suspender
-PowerTimer_cli.bat 23:30
-PowerTimer.bat -Preset 2 -ModoDebug
+./tminus.sh 1h30 --accion suspender
+tminus.bat 23:30
+tminus.bat -Preset 2 -ModoDebug
 ```
 
 ## Configuración
 
-- Windows: `%APPDATA%\PowerTimer\`
-- Linux: `~/.config/PowerTimer/`
+- Windows: `%APPDATA%\T-Minus\`
+- Linux: `~/.config/T-Minus/`
 
 `presets.ini` (`preset1=45` … `preset4=`, en minutos; vacío = sin configurar) y `settings.ini` (`accion=apagar`, `ultimo=m:45` o `ultimo=h:23:30`).
 
-## Estado de las pruebas
 
-- `.sh`: ejecutada de verdad (argumentos, tiempos, cuenta en DEBUG, cancelar, posponer, avisos, SIGHUP, Ctrl+C).
-- Python: lógica probada con una interfaz simulada; la ventana real aún no se ha visto.
-- PowerShell y `.bat`: no se pudieron ejecutar; pueden tener errores al abrirlos. Probar `PowerTimer_cli.bat` primero con `--segundos 5 --debug`.
 
 ## Limitaciones conocidas
 

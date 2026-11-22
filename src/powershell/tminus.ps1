@@ -1,7 +1,7 @@
-﻿# PowerTimer 5.1 (PowerShell + WinForms) - Autor original: Patomoi
+﻿# T-Minus 5.1 (PowerShell + WinForms) - Autor original: Patomoi
 # Solo Windows. Usa Windows PowerShell 5.1 (incluido en Windows 10/11), sin instalar nada.
-# Lanzar con PowerTimer.bat, o:  powershell -STA -ExecutionPolicy Bypass -File PowerTimer.ps1 [opciones]
-# Opciones:  PowerTimer.ps1 -Ayuda
+# Lanzar con tminus-gui.bat, o:  powershell -STA -ExecutionPolicy Bypass -File tminus.ps1 [opciones]
+# Opciones:  tminus.ps1 -Ayuda
 
 param(
     [Parameter(Position = 0)][string]$Tiempo = '',
@@ -28,7 +28,7 @@ $MaxMin     = 720      # duracion maxima "dentro de..." en minutos (12 h)
 $MaxSeg     = 86400    # limite absoluto del tiempo restante
 $AvisoSeg   = 30       # segundos de aviso final antes de ejecutar la accion
 
-$CfgDir       = Join-Path $env:APPDATA 'PowerTimer'
+$CfgDir       = Join-Path $env:APPDATA 'T-Minus'
 $PresetsFile  = Join-Path $CfgDir 'presets.ini'
 $SettingsFile = Join-Path $CfgDir 'settings.ini'
 
@@ -59,9 +59,9 @@ function Parse-Tiempo([string]$t) {
 }
 
 $TextoAyuda = @'
-PowerTimer 5.1 (PowerShell)
+T-Minus 5.1 (PowerShell)
 
-Uso:  PowerTimer.ps1 [TIEMPO] [opciones]
+Uso:  tminus.ps1 [TIEMPO] [opciones]
   Sin argumentos abre la ventana. Con TIEMPO, -Preset o -Repetir
   la abre ya programada.
 
@@ -79,20 +79,20 @@ Opciones
   -Version       muestra la versión
 
 Ejemplos
-  PowerTimer.bat 45
-  PowerTimer.bat 1h30 -Accion suspender
-  PowerTimer.bat 23:30
-  PowerTimer.bat -Preset 2 -ModoDebug
+  tminus.bat 45
+  tminus.bat 1h30 -Accion suspender
+  tminus.bat 23:30
+  tminus.bat -Preset 2 -ModoDebug
 '@
 
 function Salir-Con([string]$texto, [int]$codigo, [string]$icono = 'Information') {
     Write-Host $texto
-    [void][System.Windows.Forms.MessageBox]::Show($texto, 'PowerTimer', 'OK', $icono)
+    [void][System.Windows.Forms.MessageBox]::Show($texto, 'T-Minus', 'OK', $icono)
     exit $codigo
 }
 
 if ($Ayuda)   { Salir-Con $TextoAyuda 0 }
-if ($Version) { Salir-Con "PowerTimer $AppVersion (PowerShell)" 0 }
+if ($Version) { Salir-Con "T-Minus $AppVersion (PowerShell)" 0 }
 
 $errArg = ''
 $nModos = 0
@@ -285,11 +285,11 @@ function Ejecutar-Accion([string]$a) {
 # ----------------------------------------------------------------
 
 function Mostrar-Mensaje([string]$texto, [string]$icono = 'Information') {
-    [void][System.Windows.Forms.MessageBox]::Show($form, $texto, 'PowerTimer', 'OK', $icono)
+    [void][System.Windows.Forms.MessageBox]::Show($form, $texto, 'T-Minus', 'OK', $icono)
 }
 
 function Preguntar([string]$texto) {
-    return ([System.Windows.Forms.MessageBox]::Show($form, $texto, 'PowerTimer', 'YesNo', 'Question') -eq 'Yes')
+    return ([System.Windows.Forms.MessageBox]::Show($form, $texto, 'T-Minus', 'YesNo', 'Question') -eq 'Yes')
 }
 
 function New-Lbl([string]$text, [int]$x, [int]$y, [int]$w, [int]$h, $font, $color, [string]$align = 'MiddleLeft') {
@@ -369,7 +369,7 @@ function Estado([string]$txt) {
 # ----------------------------------------------------------------
 
 $form = New-Object System.Windows.Forms.Form
-$form.Text = 'PowerTimer'
+$form.Text = 'T-Minus'
 $form.BackColor = $cBg
 $form.ForeColor = $cFg
 $form.Font = $fBase
@@ -380,7 +380,7 @@ $form.KeyPreview = $true
 
 # ---- Pagina: menu (diseno ancho: 880 x 500) ----
 $pMenu = New-Panel 0 0 880 500 $cBg
-$pMenu.Controls.Add((New-Lbl 'PowerTimer' 16 10 190 40 $fTitle $cFg))
+$pMenu.Controls.Add((New-Lbl 'T-Minus' 16 10 190 40 $fTitle $cFg))
 $pMenu.Controls.Add((New-Lbl ('v' + $AppVersion) 200 24 60 20 $fBase $cMuted))
 $lblBanner = New-Lbl '' 400 20 464 20 $fBold $cDanger 'MiddleRight'
 $pMenu.Controls.Add($lblBanner)
@@ -511,7 +511,7 @@ $lblEstado = New-Lbl '' 16 468 640 20 $fBase $cMuted
 $pMenu.Controls.Add($lblEstado)
 $btnAcerca = New-Btn 'Acerca de' 664 436 96 32
 $btnAcerca.Add_Click({
-    Mostrar-Mensaje ("PowerTimer $AppVersion (PowerShell)`nAutor: Patomoi`n`nPrograma apagado, reinicio, suspensión o hibernación mediante una cuenta regresiva o una hora exacta, con presets, avisos previos y modo DEBUG para hacer pruebas sin tocar el PC.")
+    Mostrar-Mensaje ("T-Minus $AppVersion (PowerShell)`nAutor: Patomoi`n`nPrograma apagado, reinicio, suspensión o hibernación mediante una cuenta regresiva o una hora exacta, con presets, avisos previos y modo DEBUG para hacer pruebas sin tocar el PC.")
 })
 $pMenu.Controls.Add($btnAcerca)
 $btnSalir = New-Btn 'Salir' 768 436 96 32

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# PowerTimer 5.1 (shell) - Autor original: Patomoi
+# T-Minus 5.1 (shell) - Autor original: Patomoi
 # Menú de texto + línea de comandos. Requiere bash 4+ y el date de GNU (Linux).
-# Uso: ./powertimer.sh --ayuda
+# Uso: ./tminus.sh --ayuda
 
 VERSION="5.1"
 MAX_MIN=720      # duración máxima en minutos (12 h)
 MAX_SEG=86400    # límite absoluto del tiempo restante
 AVISO=30         # segundos de aviso final antes de ejecutar la acción
 
-CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/PowerTimer"
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/T-Minus"
 PRESETS="$CONFIG/presets.ini"
 SETTINGS="$CONFIG/settings.ini"
 
@@ -59,7 +59,7 @@ titulo() {
 pausa() { echo; read -rsn1 -p "Presione una tecla para continuar..."; echo; }
 
 notificar() {
-    command -v notify-send >/dev/null 2>&1 && notify-send "PowerTimer" "$1" >/dev/null 2>&1 &
+    command -v notify-send >/dev/null 2>&1 && notify-send "T-Minus" "$1" >/dev/null 2>&1 &
 }
 
 hhmmss() { printf '%(%H:%M:%S)T' "$1"; }
@@ -422,7 +422,7 @@ administrar() {
 }
 
 acerca() {
-    titulo "POWERTIMER"
+    titulo "T-Minus"
     echo "       PROGRAMADOR DE APAGADO"
     echo
     echo "              Versión $VERSION (shell)"
@@ -441,7 +441,7 @@ menu() {
     local k rep lbl
     while true; do
         cargar_presets
-        titulo "POWERTIMER V5"
+        titulo "T-Minus V5"
         (( DEBUG )) && { echo "        MODO DEBUG ACTIVADO"; echo "   LAS ACCIONES NO SE EJECUTARÁN"; echo; }
         echo "  Acción: ${C_B}${ACC_NOMBRE[$SEL]}${C_R}   [E] cambiar"
         echo
@@ -458,7 +458,7 @@ menu() {
         lbl=$(etiqueta_ultimo)
         if [[ -n $lbl ]]; then echo "  [R]  $lbl"; else echo "  [R]  ${C_GRIS}Repetir último: aún no hay ninguno${C_R}"; fi
         (( DEBUG )) && echo "  [G]  Modo DEBUG: ACTIVADO" || echo "  [G]  Modo DEBUG: DESACTIVADO"
-        echo "  [H]  Acerca de PowerTimer"
+        echo "  [H]  Acerca de T-Minus"
         echo "  [0]  Salir"
         echo
         if [[ -n $MSG ]]; then echo "  ${C_AMA}${MSG}${C_R}"; MSG=""; fi
@@ -501,7 +501,7 @@ on_int() {
 
 # Al cerrar la terminal no se puede preguntar: se avisa con una notificación.
 on_hup() {
-    if [[ -n $FASE ]]; then notificar "Temporizador cancelado: se cerró PowerTimer. El PC NO se tocará."; sleep 0.3; fi
+    if [[ -n $FASE ]]; then notificar "Temporizador cancelado: se cerró T-Minus. El PC NO se tocará."; sleep 0.3; fi
     exit 129
 }
 
@@ -511,7 +511,7 @@ on_hup() {
 
 uso() {
     cat << AYUDA
-PowerTimer $VERSION (shell)
+T-Minus $VERSION (shell)
 
 Uso: $0 [TIEMPO] [opciones]
   Sin argumentos abre el menú. Con TIEMPO (o --preset / --repetir)
@@ -543,7 +543,7 @@ Ejemplos
 AYUDA
 }
 
-error_args() { echo "PowerTimer: $1" >&2; echo "Pruebe: $0 --ayuda" >&2; exit 2; }
+error_args() { echo "T-Minus: $1" >&2; echo "Pruebe: $0 --ayuda" >&2; exit 2; }
 
 main() {
     local ARG_T="" ARG_A="" ARG_P="" ARG_R=0 ARG_S="" rc=0
@@ -553,7 +553,7 @@ main() {
     while (( $# )); do
         case $1 in
             -h|--ayuda|--help) uso; exit 0 ;;
-            -v|--version) echo "PowerTimer $VERSION (shell)"; exit 0 ;;
+            -v|--version) echo "T-Minus $VERSION (shell)"; exit 0 ;;
             -d|--debug) DEBUG=1 ;;
             -r|--repetir) ARG_R=1 ;;
             -a|--accion)   (( $# >= 2 )) || error_args "falta el valor de $1"; ARG_A=$2; shift ;;
