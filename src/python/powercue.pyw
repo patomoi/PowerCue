@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""T-Minus 5.1 (GUI) - Programador de energia con ventana grafica y linea de comandos.
+"""PowerCue Power Management 5.1 (GUI) - Programador de energia con ventana grafica y linea de comandos.
 
 Autor original: Patomoi.
 Requiere solo Python 3 con tkinter. Funciona en Windows y Linux
@@ -54,7 +54,7 @@ def config_dir() -> Path:
         base = os.environ.get("APPDATA") or str(Path.home())
     else:
         base = os.environ.get("XDG_CONFIG_HOME") or str(Path.home() / ".config")
-    return Path(base) / "T-Minus"
+    return Path(base) / "Powercue"
 
 
 PRESETS_FILE = config_dir() / "presets.ini"
@@ -110,8 +110,8 @@ def leer_args(argv=None):
         return t
 
     p = argparse.ArgumentParser(
-        prog="T-Minus",
-        description="T-Minus: sin argumentos abre la ventana; con TIEMPO, "
+        prog="PowerCue Power Management",
+        description="powercue: sin argumentos abre la ventana; con TIEMPO, "
                     "--preset o --repetir la abre ya programada.")
     p.add_argument("tiempo", nargs="?", type=tiempo_arg,
                    help="45, 45m, 2h, 1h30 (duracion, hasta 12 h) o 23:30 (hora exacta)")
@@ -125,7 +125,7 @@ def leer_args(argv=None):
                    help="simulacion: nunca toca el PC")
     p.add_argument("--segundos", type=int, metavar="N",
                    help="duracion en segundos (solo pruebas, requiere --debug)")
-    p.add_argument("-v", "--version", action="version", version=f"T-Minus {VERSION} (GUI)")
+    p.add_argument("-v", "--version", action="version", version=f"PowerCue Power Management {VERSION} (GUI)")
     a = p.parse_args(argv)
     modos = [bool(a.tiempo), a.preset is not None, a.repetir, a.segundos is not None]
     if sum(modos) > 1:
@@ -248,7 +248,7 @@ RING = 280
 class App(tk.Tk):
     def __init__(self, args=None):
         super().__init__()
-        self.title("T-Minus")
+        self.title("Powercue Power Management")
         self.configure(bg=BG)
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.al_cerrar)
@@ -320,12 +320,12 @@ class App(tk.Tk):
             if self.presets[a.preset]:
                 self.iniciar_minutos(self.presets[a.preset])
             else:
-                messagebox.showwarning("T-Minus", f"El preset {a.preset} no está configurado.")
+                messagebox.showwarning("PowerCue Power Management", f"El preset {a.preset} no está configurado.")
         elif a.repetir:
             if etiqueta_ultimo(self.ajustes.get("ultimo", "")):
                 self.repetir_ultimo()
             else:
-                messagebox.showinfo("T-Minus", "Aún no hay un último tiempo guardado.")
+                messagebox.showinfo("PowerCue Power Management", "Aún no hay un último tiempo guardado.")
         elif a.tiempo:
             t = parse_tiempo(a.tiempo)
             if t[0] == "m":
@@ -410,7 +410,7 @@ class App(tk.Tk):
         # Cabecera
         cab = ttk.Frame(f)
         cab.grid(row=0, column=0, columnspan=2, sticky="ew")
-        ttk.Label(cab, text="T-Minus", style="Title.TLabel").pack(side="left")
+        ttk.Label(cab, text="Powercue Power Management", style="Title.TLabel").pack(side="left")
         ttk.Label(cab, text=f"v{VERSION}", style="Muted.TLabel").pack(
             side="left", padx=(8, 0), pady=(10, 0))
         ttk.Label(cab, textvariable=self.banner, style="Danger.TLabel").pack(side="right")
@@ -578,7 +578,7 @@ class App(tk.Tk):
             return
         v = validar(s)
         if v is None:
-            messagebox.showwarning("T-Minus",
+            messagebox.showwarning("PowerCue Power Management",
                                    f"Valor inválido. Use solo números entre 1 y {MAX_MIN}.")
             return
         self.presets[n] = v
@@ -638,7 +638,7 @@ class App(tk.Tk):
     def iniciar_personalizado(self):
         v = validar(self.e_min.get())
         if v is None:
-            messagebox.showwarning("T-Minus",
+            messagebox.showwarning("PowerCue Power Management",
                                    f"Valor inválido. Use solo números entre 1 y {MAX_MIN}.")
             return
         self.iniciar_minutos(v)
@@ -650,7 +650,7 @@ class App(tk.Tk):
         try:
             hh, mm = self._leer_hora()
         except ValueError:
-            messagebox.showwarning("T-Minus", "Hora inválida. Use 0-23 : 0-59.")
+            messagebox.showwarning("PowerCue Power Management", "Hora inválida. Use 0-23 : 0-59.")
             return
         self.iniciar_hora(hh, mm)
 
@@ -766,7 +766,7 @@ class App(tk.Tk):
             self.fase = None
             self._quitar_topmost()
             nombre = ACCIONES[self.accion]["nombre"].lower()
-            messagebox.showinfo("T-Minus",
+            messagebox.showinfo("PowerCue Power Management",
                                 f"Temporizador finalizado.\n\nSIMULACIÓN: se habría "
                                 f"ejecutado «{nombre}». El PC no ha sido tocado.")
             self.mostrar(self.f_menu)
@@ -802,7 +802,7 @@ class App(tk.Tk):
         self.fase = None
         if not ejecutar_accion(self.accion):
             self._quitar_topmost()
-            messagebox.showerror("T-Minus",
+            messagebox.showerror("PowerCue Power Management",
                                  "No se pudo ejecutar la acción.\n"
                                  "Puede que el sistema no la tenga habilitada "
                                  "(por ejemplo, la hibernación).")
@@ -834,15 +834,15 @@ class App(tk.Tk):
 
     def acerca(self):
         messagebox.showinfo(
-            "Acerca de T-Minus Shutdown",
-            f"T-Minus {VERSION}\nAutor: Patomoi\n\n"
+            "Acerca de PowerCue Power Management",
+            f"PowerCue Power Management {VERSION}\nAutor: Patomoi\n\n"
             "Programa apagado, reinicio, suspensión o hibernación mediante una "
             "cuenta regresiva o una hora exacta, con presets, avisos previos y "
             "modo DEBUG para hacer pruebas sin tocar el PC.")
 
     def al_cerrar(self):
         if self.fase and not messagebox.askyesno(
-                "T-Minus",
+                "PowerCue Power Management",
                 "Hay un temporizador en marcha.\n"
                 "Si sale, se cancelará y el PC NO se tocará.\n\n¿Salir?"):
             return

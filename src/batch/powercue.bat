@@ -1,10 +1,10 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-title T-Minus Shutdown
+title PowerCue Power Management 
 
 rem ==================================================
-rem T-Minus 5.1 (batch) - Autor original: Patomoi
-rem Menu de texto + linea de comandos. Ayuda: tminus.bat --ayuda
+rem PowerCue Power Management 5.1 (batch) - Autor original: Patomoi
+rem Menu de texto + linea de comandos. Ayuda: powercue.bat --ayuda
 rem Solo ASCII: sin tildes, para que la consola las muestre bien.
 rem ==================================================
 
@@ -12,7 +12,7 @@ set "VERSION=5.1"
 set "MAX_MIN=720"
 set "MAX_SEG=86000"
 set "AVISO=30"
-set "CONFIG=%APPDATA%\T-Minus"
+set "CONFIG=%APPDATA%\Powercue"
 set "PRESETS=%CONFIG%\presets.ini"
 set "SETTINGS=%CONFIG%\settings.ini"
 
@@ -160,7 +160,7 @@ call :LABEL_ULTIMO
 cls
 echo.
 echo ========================================
-echo             T-MINUS V5
+echo       PowerCue Power Management V5
 echo ========================================
 echo.
 if "!DEBUG!"=="1" (
@@ -185,7 +185,7 @@ echo   [C]  Hora exacta
 echo   [D]  Administrar presets
 if defined UL_TXT ( echo   [R]  !UL_TXT! ) else ( echo   [R]  Repetir ultimo: aun no hay ninguno )
 if "!DEBUG!"=="1" ( echo   [G]  Modo DEBUG: ACTIVADO ) else ( echo   [G]  Modo DEBUG: DESACTIVADO )
-echo   [H]  Acerca de T-Minus Shutdown
+echo   [H]  Acerca de PowerCue Power Management 
 echo   [0]  Salir
 echo.
 if defined MSG (
@@ -347,7 +347,7 @@ goto ADMIN
 cls
 echo.
 echo ========================================
-echo             T-MINUS
+echo        PowerCue Power Management
 echo ========================================
 echo.
 echo       PROGRAMADOR DE APAGADO
@@ -375,9 +375,9 @@ rem AYUDA Y VERSION
 rem ==================================================
 
 :AYUDA
-echo T-Minus !VERSION! (batch)
+echo PowerCue Power Management !VERSION! (batch)
 echo.
-echo Uso: tminus.bat [TIEMPO] [opciones]
+echo Uso: powercue.bat [TIEMPO] [opciones]
 echo   Sin argumentos abre el menu. Con TIEMPO, --preset o --repetir
 echo   programa de inmediato y muestra la cuenta regresiva.
 echo.
@@ -401,19 +401,19 @@ echo.
 echo Codigos de salida: 0 termino, 1 cancelado, 2 argumentos invalidos.
 echo.
 echo Ejemplos
-echo   tminus.bat 45
-echo   tminus.bat 1h30 --accion suspender
-echo   tminus.bat 23:30 -a apagar
-echo   tminus.bat --preset 2 --debug
+echo   powercue.bat 45
+echo   powercue.bat 1h30 --accion suspender
+echo   powercue.bat 23:30 -a apagar
+echo   powercue.bat --preset 2 --debug
 exit /b 0
 
 :VER_VERSION
-echo T-Minus !VERSION! (batch)
+echo PowerCue Power Management !VERSION! (batch)
 exit /b 0
 
 :ERR_ARGS
-echo T-Minus: %~1
-echo Pruebe: tminus.bat --ayuda
+echo PowerCue Power Management: %~1
+echo Pruebe: powercue.bat --ayuda
 exit /b 2
 
 rem ==================================================

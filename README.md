@@ -1,4 +1,4 @@
-# T-Minus Shutdown
+# PowerCue Power Management 
 
 Programador de apagado y otras acciones de energía (apagar, reiniciar, suspender, hibernar).
 Empezó con el nombre «proyect shutdown». Autor original: Patomoi.
@@ -9,11 +9,11 @@ Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Li
 
 | Carpeta | Archivo | Qué es | Requisitos |
 |---|---|---|---|
-| `src/python/` | `tminus.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
-| `src/powershell/` | `tminus.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
-| `src/powershell/` | `tminus.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `tminus.ps1` |
-| `src/batch/` | `tminus.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |
-| `src/shell/` | `tminus.sh` | Versión de texto para Linux | bash 4+ y `date` de GNU |
+| `src/python/` | `powercue.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
+| `src/powershell/` | `powercue.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
+| `src/powershell/` | `powercue.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `powercue.ps1` |
+| `src/batch/` | `powercue.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |
+| `src/shell/` | `powercue.sh` | Versión de texto para Linux | bash 4+ y `date` de GNU |
 
 Las cuatro comparten sintaxis de línea de comandos y archivos de configuración.
 
@@ -48,15 +48,15 @@ Códigos de salida (versiones de texto): `0` terminó, `1` cancelado, `2` argume
 Ejemplos:
 
 ```
-./tminus.sh 1h30 --accion suspender
-tminus.bat 23:30
-tminus.bat -Preset 2 -ModoDebug
+./powercue.sh 1h30 --accion suspender
+powercue.bat 23:30
+powercue.bat -Preset 2 -ModoDebug
 ```
 
 ## Configuración
 
-- Windows: `%APPDATA%\T-Minus\`
-- Linux: `~/.config/T-Minus/`
+- Windows: `%APPDATA%\Powercue\`
+- Linux: `~/.config/Powercue/`
 
 `presets.ini` (`preset1=45` … `preset4=`, en minutos; vacío = sin configurar) y `settings.ini` (`accion=apagar`, `ultimo=m:45` o `ultimo=h:23:30`).
 
