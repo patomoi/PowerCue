@@ -54,7 +54,7 @@ def config_dir() -> Path:
         base = os.environ.get("APPDATA") or str(Path.home())
     else:
         base = os.environ.get("XDG_CONFIG_HOME") or str(Path.home() / ".config")
-    return Path(base) / "Powercue"
+    return Path(base) / "PowerCue"
 
 
 PRESETS_FILE = config_dir() / "presets.ini"
@@ -110,8 +110,8 @@ def leer_args(argv=None):
         return t
 
     p = argparse.ArgumentParser(
-        prog="PowerCue Power Management",
-        description="powercue: sin argumentos abre la ventana; con TIEMPO, "
+        prog="powercue",
+        description="PowerCue Power Management: sin argumentos abre la ventana; con TIEMPO, "
                     "--preset o --repetir la abre ya programada.")
     p.add_argument("tiempo", nargs="?", type=tiempo_arg,
                    help="45, 45m, 2h, 1h30 (duracion, hasta 12 h) o 23:30 (hora exacta)")
@@ -248,7 +248,7 @@ RING = 280
 class App(tk.Tk):
     def __init__(self, args=None):
         super().__init__()
-        self.title("Powercue Power Management")
+        self.title("PowerCue Power Management")
         self.configure(bg=BG)
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.al_cerrar)
@@ -410,7 +410,9 @@ class App(tk.Tk):
         # Cabecera
         cab = ttk.Frame(f)
         cab.grid(row=0, column=0, columnspan=2, sticky="ew")
-        ttk.Label(cab, text="Powercue Power Management", style="Title.TLabel").pack(side="left")
+        ttk.Label(cab, text="PowerCue", style="Title.TLabel").pack(side="left")
+        ttk.Label(cab, text="Power Management", style="Muted.TLabel").pack(
+            side="left", padx=(8, 0), pady=(10, 0))
         ttk.Label(cab, text=f"v{VERSION}", style="Muted.TLabel").pack(
             side="left", padx=(8, 0), pady=(10, 0))
         ttk.Label(cab, textvariable=self.banner, style="Danger.TLabel").pack(side="right")

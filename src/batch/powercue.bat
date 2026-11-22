@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-title PowerCue Power Management 
+title PowerCue Power Management
 
 rem ==================================================
 rem PowerCue Power Management 5.1 (batch) - Autor original: Patomoi
@@ -12,7 +12,7 @@ set "VERSION=5.1"
 set "MAX_MIN=720"
 set "MAX_SEG=86000"
 set "AVISO=30"
-set "CONFIG=%APPDATA%\Powercue"
+set "CONFIG=%APPDATA%\PowerCue"
 set "PRESETS=%CONFIG%\presets.ini"
 set "SETTINGS=%CONFIG%\settings.ini"
 
@@ -160,7 +160,7 @@ call :LABEL_ULTIMO
 cls
 echo.
 echo ========================================
-echo       PowerCue Power Management V5
+echo      PowerCue Power Management V!VERSION!
 echo ========================================
 echo.
 if "!DEBUG!"=="1" (
@@ -185,7 +185,7 @@ echo   [C]  Hora exacta
 echo   [D]  Administrar presets
 if defined UL_TXT ( echo   [R]  !UL_TXT! ) else ( echo   [R]  Repetir ultimo: aun no hay ninguno )
 if "!DEBUG!"=="1" ( echo   [G]  Modo DEBUG: ACTIVADO ) else ( echo   [G]  Modo DEBUG: DESACTIVADO )
-echo   [H]  Acerca de PowerCue Power Management 
+echo   [H]  Acerca de PowerCue Power Management
 echo   [0]  Salir
 echo.
 if defined MSG (
@@ -350,7 +350,7 @@ echo ========================================
 echo        PowerCue Power Management
 echo ========================================
 echo.
-echo       PROGRAMADOR DE APAGADO
+echo       PROGRAMADOR DE ENERGIA
 echo.
 echo          Version !VERSION! (batch)
 echo          Autor: Patomoi

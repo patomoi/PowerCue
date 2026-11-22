@@ -8,7 +8,7 @@ MAX_MIN=720      # duración máxima en minutos (12 h)
 MAX_SEG=86400    # límite absoluto del tiempo restante
 AVISO=30         # segundos de aviso final antes de ejecutar la acción
 
-CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/Powercue"
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/PowerCue"
 PRESETS="$CONFIG/presets.ini"
 SETTINGS="$CONFIG/settings.ini"
 
@@ -423,7 +423,7 @@ administrar() {
 
 acerca() {
     titulo "PowerCue Power Management"
-    echo "       PROGRAMADOR DE APAGADO"
+    echo "       PROGRAMADOR DE ENERGÍA"
     echo
     echo "              Versión $VERSION (shell)"
     echo "          Autor: Patomoi"
@@ -441,7 +441,7 @@ menu() {
     local k rep lbl
     while true; do
         cargar_presets
-        titulo "PowerCue Power Management V5"
+        titulo "PowerCue Power Management V$VERSION"
         (( DEBUG )) && { echo "        MODO DEBUG ACTIVADO"; echo "   LAS ACCIONES NO SE EJECUTARÁN"; echo; }
         echo "  Acción: ${C_B}${ACC_NOMBRE[$SEL]}${C_R}   [E] cambiar"
         echo

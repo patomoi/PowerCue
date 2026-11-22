@@ -1,7 +1,7 @@
-# PowerCue Power Management 
+# PowerCue Power Management
 
 Programador de apagado y otras acciones de energía (apagar, reiniciar, suspender, hibernar).
-Empezó con el nombre «proyect shutdown». Autor original: Patomoi.
+Historial de nombres: «proyect shutdown» → PowerTimer → PowerCue. Autor original: Patomoi.
 
 Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Linux.
 
@@ -11,11 +11,12 @@ Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Li
 |---|---|---|---|
 | `src/python/` | `powercue.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
 | `src/powershell/` | `powercue.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
-| `src/powershell/` | `powercue.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `powercue.ps1` |
+| `src/powershell/` | `powercue-gui.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `powercue.ps1` |
 | `src/batch/` | `powercue.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |
 | `src/shell/` | `powercue.sh` | Versión de texto para Linux | bash 4+ y `date` de GNU |
 
 Las cuatro comparten sintaxis de línea de comandos y archivos de configuración.
+El lanzador de PowerShell se llama `powercue-gui.bat` para no chocar con `powercue.bat` (versión de texto).
 
 ## Funciones comunes
 
@@ -50,17 +51,17 @@ Ejemplos:
 ```
 ./powercue.sh 1h30 --accion suspender
 powercue.bat 23:30
-powercue.bat -Preset 2 -ModoDebug
+powercue-gui.bat -Preset 2 -ModoDebug
 ```
 
 ## Configuración
 
-- Windows: `%APPDATA%\Powercue\`
-- Linux: `~/.config/Powercue/`
+- Windows: `%APPDATA%\PowerCue\`
+- Linux: `~/.config/PowerCue/`
 
 `presets.ini` (`preset1=45` … `preset4=`, en minutos; vacío = sin configurar) y `settings.ini` (`accion=apagar`, `ultimo=m:45` o `ultimo=h:23:30`).
 
-
+Las versiones anteriores al cambio de nombre usaban la carpeta `PowerTimer`. No hay migración: los presets antiguos no se importan.
 
 ## Limitaciones conocidas
 

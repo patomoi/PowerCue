@@ -1,6 +1,6 @@
 ﻿# PowerCue Power Management 5.1 (PowerShell + WinForms) - Autor original: Patomoi
 # Solo Windows. Usa Windows PowerShell 5.1 (incluido en Windows 10/11), sin instalar nada.
-# Lanzar con powercue.bat, o:  powershell -STA -ExecutionPolicy Bypass -File powercue.ps1 [opciones]
+# Lanzar con powercue-gui.bat, o:  powershell -STA -ExecutionPolicy Bypass -File powercue.ps1 [opciones]
 # Opciones:  powercue.ps1 -Ayuda
 
 param(
@@ -28,7 +28,7 @@ $MaxMin     = 720      # duracion maxima "dentro de..." en minutos (12 h)
 $MaxSeg     = 86400    # limite absoluto del tiempo restante
 $AvisoSeg   = 30       # segundos de aviso final antes de ejecutar la accion
 
-$CfgDir       = Join-Path $env:APPDATA 'Powercue'
+$CfgDir       = Join-Path $env:APPDATA 'PowerCue'
 $PresetsFile  = Join-Path $CfgDir 'presets.ini'
 $SettingsFile = Join-Path $CfgDir 'settings.ini'
 
@@ -79,10 +79,10 @@ Opciones
   -Version       muestra la versión
 
 Ejemplos
-  powercue.bat 45
-  powercue.bat 1h30 -Accion suspender
-  powercue.bat 23:30
-  powercue.bat -Preset 2 -ModoDebug
+  powercue-gui.bat 45
+  powercue-gui.bat 1h30 -Accion suspender
+  powercue-gui.bat 23:30
+  powercue-gui.bat -Preset 2 -ModoDebug
 '@
 
 function Salir-Con([string]$texto, [int]$codigo, [string]$icono = 'Information') {
@@ -92,7 +92,7 @@ function Salir-Con([string]$texto, [int]$codigo, [string]$icono = 'Information')
 }
 
 if ($Ayuda)   { Salir-Con $TextoAyuda 0 }
-if ($Version) { Salir-Con "Powercue Power Management $AppVersion (PowerShell)" 0 }
+if ($Version) { Salir-Con "PowerCue Power Management $AppVersion (PowerShell)" 0 }
 
 $errArg = ''
 $nModos = 0
@@ -380,8 +380,9 @@ $form.KeyPreview = $true
 
 # ---- Pagina: menu (diseno ancho: 880 x 500) ----
 $pMenu = New-Panel 0 0 880 500 $cBg
-$pMenu.Controls.Add((New-Lbl 'PowerCue Power Management' 16 10 190 40 $fTitle $cFg))
-$pMenu.Controls.Add((New-Lbl ('v' + $AppVersion) 200 24 60 20 $fBase $cMuted))
+$pMenu.Controls.Add((New-Lbl 'PowerCue' 16 10 140 40 $fTitle $cFg))
+$pMenu.Controls.Add((New-Lbl 'Power Management' 156 24 150 20 $fBase $cMuted))
+$pMenu.Controls.Add((New-Lbl ('v' + $AppVersion) 306 24 60 20 $fBase $cMuted))
 $lblBanner = New-Lbl '' 400 20 464 20 $fBold $cDanger 'MiddleRight'
 $pMenu.Controls.Add($lblBanner)
 

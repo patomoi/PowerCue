@@ -9,6 +9,9 @@
 - El temporizador no sobrevive al cierre de la ventana o terminal (se quiere feedback); en su lugar hay advertencia ante cierre accidental.
 - Ventanas más anchas que altas (la versión alta se cortaba en pantalla). PowerShell: 880×500 (menú) y 700×328 (cuenta).
 - Número de versión unificado en todas.
+- Nombre: «proyect shutdown» → PowerTimer → PowerCue. En las ventanas, «PowerCue» es el título y «Power Management» un subtítulo; el título de la ventana y los diálogos usan «PowerCue Power Management».
+- La carpeta de configuración se llama `PowerCue` (mismo casing en las cuatro versiones; en Linux importa). No se migran los presets de la carpeta `PowerTimer`.
+- El lanzador de PowerShell es `powercue-gui.bat`, para no chocar con `powercue.bat` (versión de texto).
 
 ## Advertencia al cerrar con un temporizador corriendo
 
@@ -24,9 +27,9 @@
 
 ## Pendientes
 
-- PowerShell: «pequeños errores visuales» reportados sin detalle; confirmar si persisten tras el rediseño ancho.
+- PowerShell: «pequeños errores visuales» reportados sin detalle; confirmar si persisten tras el rediseño ancho y tras el cambio de cabecera (título «PowerCue» + subtítulo + versión).
+- Python: comprobar en pantalla real que la cabecera nueva no ensancha la ventana.
 - Probar `powercue.bat` en Windows (la más delicada por las particularidades de batch).
-
 
 ## Limitaciones conocidas
 
