@@ -1,6 +1,6 @@
 ﻿# T-Minus 5.1 (PowerShell + WinForms) - Autor original: Patomoi
 # Solo Windows. Usa Windows PowerShell 5.1 (incluido en Windows 10/11), sin instalar nada.
-# Lanzar con tminus-gui.bat, o:  powershell -STA -ExecutionPolicy Bypass -File tminus.ps1 [opciones]
+# Lanzar con tminus.bat, o:  powershell -STA -ExecutionPolicy Bypass -File tminus.ps1 [opciones]
 # Opciones:  tminus.ps1 -Ayuda
 
 param(
@@ -511,7 +511,7 @@ $lblEstado = New-Lbl '' 16 468 640 20 $fBase $cMuted
 $pMenu.Controls.Add($lblEstado)
 $btnAcerca = New-Btn 'Acerca de' 664 436 96 32
 $btnAcerca.Add_Click({
-    Mostrar-Mensaje ("T-Minus $AppVersion (PowerShell)`nAutor: Patomoi`n`nPrograma apagado, reinicio, suspensión o hibernación mediante una cuenta regresiva o una hora exacta, con presets, avisos previos y modo DEBUG para hacer pruebas sin tocar el PC.")
+    Mostrar-Mensaje ("T-Minus Shutdown $AppVersion (PowerShell)`nAutor: Patomoi`n`nPrograma apagado, reinicio, suspensión o hibernación mediante una cuenta regresiva o una hora exacta, con presets, avisos previos y modo DEBUG para hacer pruebas sin tocar el PC.")
 })
 $pMenu.Controls.Add($btnAcerca)
 $btnSalir = New-Btn 'Salir' 768 436 96 32

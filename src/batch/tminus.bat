@@ -12,7 +12,7 @@ set "VERSION=5.1"
 set "MAX_MIN=720"
 set "MAX_SEG=86000"
 set "AVISO=30"
-set "CONFIG=%APPDATA%\T-minus"
+set "CONFIG=%APPDATA%\T-Minus"
 set "PRESETS=%CONFIG%\presets.ini"
 set "SETTINGS=%CONFIG%\settings.ini"
 
@@ -185,7 +185,7 @@ echo   [C]  Hora exacta
 echo   [D]  Administrar presets
 if defined UL_TXT ( echo   [R]  !UL_TXT! ) else ( echo   [R]  Repetir ultimo: aun no hay ninguno )
 if "!DEBUG!"=="1" ( echo   [G]  Modo DEBUG: ACTIVADO ) else ( echo   [G]  Modo DEBUG: DESACTIVADO )
-echo   [H]  Acerca de T-Minus
+echo   [H]  Acerca de T-Minus Shutdown
 echo   [0]  Salir
 echo.
 if defined MSG (

@@ -422,7 +422,7 @@ administrar() {
 }
 
 acerca() {
-    titulo "T-Minus"
+    titulo "T-Minus Shutdown"
     echo "       PROGRAMADOR DE APAGADO"
     echo
     echo "              Versión $VERSION (shell)"

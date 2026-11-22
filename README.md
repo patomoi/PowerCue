@@ -9,7 +9,7 @@ Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Li
 
 | Carpeta | Archivo | Qué es | Requisitos |
 |---|---|---|---|
-| `src/python/` | `tminus_gui.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
+| `src/python/` | `tminus.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
 | `src/powershell/` | `tminus.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
 | `src/powershell/` | `tminus.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `tminus.ps1` |
 | `src/batch/` | `tminus.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |
