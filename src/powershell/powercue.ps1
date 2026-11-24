@@ -78,11 +78,11 @@ Opciones
   -Ayuda         muestra esta ayuda
   -Version       muestra la versión
 
-Ejemplos
-  powercue-gui.bat 45
-  powercue-gui.bat 1h30 -Accion suspender
-  powercue-gui.bat 23:30
-  powercue-gui.bat -Preset 2 -ModoDebug
+Ejemplos (LANZADOR = PowerCue.bat en el zip, powercue-gui.bat en el repositorio)
+  LANZADOR 45
+  LANZADOR 1h30 -Accion suspender
+  LANZADOR 23:30
+  LANZADOR -Preset 2 -ModoDebug
 '@
 
 function Salir-Con([string]$texto, [int]$codigo, [string]$icono = 'Information') {

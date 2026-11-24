@@ -28,9 +28,8 @@
 
 ## Pendientes
 
-- comprobar todas las versiones con testeos reales exaustivos, al momento los test han pasado OK 
-- ver si se pueden juntar las cersiones de powershell, quiza en un exe
-- ver si se puede hacer un paquete de la version de python
+- comprobar todas las versiones con testeos reales, al momento los test han pasado OK 
+
 
 ## Limitaciones conocidas
 
