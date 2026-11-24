@@ -9,10 +9,10 @@ Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Li
 
 | Si usas… | Descarga | Cómo abrirla |
 |---|---|---|
-| **Windows**, sin experiencia técnica | `PowerCue-5.1-windows.zip` | Extraer todo el contenido en una carpeta y abrir `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
+| **Windows**, sin experiencia técnica | `PowerCue-<version>-windows.zip` | Extraer todo el contenido en una carpeta y abrir `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
 | **Windows**, si prefieres la consola | `powercue.bat` | Doble clic, o desde cmd: `powercue.bat 45`. Un solo archivo. |
 | **Linux** | `powercue.sh` | `chmod +x powercue.sh` y luego `./powercue.sh`. Requiere bash 4+ y el `date` de GNU. |
-| **Python** | `powercue.pyw` | Solo si ya tienes Python 3 con tkinter: `python powercue.pyw`. Funciona en Windows y Linux, pero no se recomienda para el público general: instalar Python es un paso extra. |
+| **Python** | `powercue.pyw` | Solo si ya tienes Python 3 con tkinter: doble clic o `python powercue.pyw`. Funciona en Windows y Linux, pero no se recomienda para el público general: instalar Python es un paso extra. |
 
 Los archivos de descarga están en la sección *Releases* del repositorio.
 Dentro del `.zip` de Windows, el lanzador se llama `PowerCue.bat` y `powercue.ps1` va en la carpeta `lib\`;
