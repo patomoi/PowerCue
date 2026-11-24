@@ -1,0 +1,29 @@
+﻿PowerCue Power Management
+Programador de apagado, reinicio, suspensión o hibernación.
+
+CÓMO USARLO
+1. Extraiga TODO el contenido del .zip en una carpeta
+   (clic derecho > Extraer todo). No lo abra desde dentro del .zip.
+2. Abra PowerCue.bat con doble clic.
+3. Elija la acción y el tiempo. Durante la cuenta regresiva puede
+   ajustar el tiempo, posponer o cancelar.
+
+Para probar sin riesgo, active «Modo DEBUG»: simula todo y nunca
+apaga el PC.
+
+SI WINDOWS MUESTRA «Windows protegió su PC»
+Es normal: el programa no está firmado digitalmente. Pulse
+«Más información» y luego «Ejecutar de todas formas».
+
+NO INSTALA NADA
+Solo usa PowerShell, que ya viene con Windows 10 y 11.
+Guarda sus presets en %APPDATA%\PowerCue. Para eliminarlo por
+completo, borre la carpeta del programa y esa carpeta.
+
+DESDE LA CONSOLA (opcional)
+   PowerCue.bat 45                 apagar en 45 minutos
+   PowerCue.bat 23:30              apagar a las 23:30
+   PowerCue.bat 1h30 -Accion suspender
+   PowerCue.bat -Ayuda             todas las opciones
+
+Autor original: Patomoi.

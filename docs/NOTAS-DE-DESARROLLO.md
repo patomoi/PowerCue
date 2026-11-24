@@ -12,6 +12,7 @@
 - Nombre: «proyect shutdown» → PowerTimer → PowerCue. En las ventanas, «PowerCue» es el título y «Power Management» un subtítulo; el título de la ventana y los diálogos usan «PowerCue Power Management».
 - La carpeta de configuración se llama `PowerCue` (mismo casing en las cuatro versiones; en Linux importa). No se migran los presets de la carpeta `PowerTimer`.
 - El lanzador de PowerShell es `powercue-gui.bat`, para no chocar con `powercue.bat` (versión de texto).
+- Paquete de descarga: el zip de Windows lleva PowerCue.bat en la raíz y powercue.ps1 en lib\; se genera con python tools/empaquetar.py (deja todo en dist/).
 
 ## Advertencia al cerrar con un temporizador corriendo
 
@@ -27,9 +28,9 @@
 
 ## Pendientes
 
-- PowerShell: «pequeños errores visuales» reportados sin detalle; confirmar si persisten tras el rediseño ancho y tras el cambio de cabecera (título «PowerCue» + subtítulo + versión).
-- Python: comprobar en pantalla real que la cabecera nueva no ensancha la ventana.
-- Probar `powercue.bat` en Windows (la más delicada por las particularidades de batch).
+- comprobar todas las versiones con testeos reales exaustivos, al momento los test han pasado OK 
+- ver si se pueden juntar las cersiones de powershell, quiza en un exe
+- ver si se puede hacer un paquete de la version de python
 
 ## Limitaciones conocidas
 

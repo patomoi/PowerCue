@@ -5,6 +5,24 @@ Historial de nombres: «proyect shutdown» → PowerTimer → PowerCue. Autor or
 
 Versión actual: **5.1**. Desarrollo principal en Windows; también se usa en Linux.
 
+## ¿Cuál versión uso?
+
+| Si usas… | Descarga | Cómo abrirla |
+|---|---|---|
+| **Windows**, sin experiencia técnica | `PowerCue-5.1-windows.zip` | Extraer todo el contenido en una carpeta y abrir `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
+| **Windows**, si prefieres la consola | `powercue.bat` | Doble clic, o desde cmd: `powercue.bat 45`. Un solo archivo. |
+| **Linux** | `powercue.sh` | `chmod +x powercue.sh` y luego `./powercue.sh`. Requiere bash 4+ y el `date` de GNU. |
+| **Python** | `powercue.pyw` | Solo si ya tienes Python 3 con tkinter: `python powercue.pyw`. Funciona en Windows y Linux, pero no se recomienda para el público general: instalar Python es un paso extra. |
+
+Los archivos de descarga están en la sección *Releases* del repositorio.
+Dentro del `.zip` de Windows, el lanzador se llama `PowerCue.bat` y `powercue.ps1` va en la carpeta `lib\`;
+en el repositorio (`src/powershell/`) siguen juntos como `powercue.ps1` y `powercue-gui.bat`.
+
+La primera vez, Windows puede mostrar «Windows protegió su PC», porque los archivos no están firmados.
+Pulsa «Más información» y «Ejecutar de todas formas». Cada release incluye `SHA256SUMS.txt` para verificar la descarga.
+
+Para generar los archivos de descarga: `python tools/empaquetar.py` (deja todo en `dist/` y muestra el comando para publicarlos).
+
 ## Versiones
 
 | Carpeta | Archivo | Qué es | Requisitos |
