@@ -1,6 +1,7 @@
 # PowerCue Power Management
 
-![Imagen de PowerCue abierto](image.png)
+<img width="890" height="441" alt="Imagen de PowerCue abierto" src="https://github.com/user-attachments/assets/208dc48b-d615-4ef8-9ad1-5eddee4ee5e8" />
+
 
 Programador de apagado y otras acciones de energía (apagar, reiniciar, suspender, hibernar).
 Historial de nombres: «proyect shutdown» → PowerTimer → PowerCue. Autor original: Patomoi.
