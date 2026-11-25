@@ -28,7 +28,7 @@
 
 ## Pendientes
 
-- comprobar todas las versiones con testeos reales, Pruebas reales hechas hasta ahora: OK en las cuatro versiones
+- Pruebas reales hechas hasta ahora: OK en las cuatro versiones
 
 
 ## Limitaciones conocidas
