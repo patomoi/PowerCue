@@ -16,7 +16,7 @@ Descarga el archivo que corresponda desde la sección **Releases** del repositor
 | **Windows**, sin experiencia técnica | `PowerCue-<version>-windows.zip` | Extrae **todo** el contenido en una carpeta y abre `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
 | **Windows**, si prefieres la consola | `powercue.bat` | Doble clic, o desde cmd: `powercue.bat 45`. Un solo archivo. |
 | **Linux** | `powercue.sh` | `chmod +x powercue.sh` y luego `./powercue.sh`. Requiere bash 4+ y el `date` de GNU. |
-| **Python** | `powercue.pyw` | Solo si ya tienes Python 3.8 o superior con tkinter: `python powercue.pyw`. Funciona en Windows y Linux, pero no se recomienda para el público general: instalar Python es un paso extra. |
+| **Python** | `powercue.pyw` | Solo si ya tienes Python 3.8 o superior con tkinter: doble click o desde CMD/terminal: `python powercue.pyw`. Funciona en Windows y Linux, requiere instalar Python 3.8+ y tkinter |
 
 En Windows no necesitas instalar nada más: la versión gráfica usa PowerShell, que ya viene con Windows 10 y 11.
 
