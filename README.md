@@ -16,7 +16,7 @@ Descarga el archivo que corresponda desde la sección **Releases** del repositor
 | **Windows**, sin experiencia técnica | `PowerCue-<version>-windows.zip` | Extrae **todo** el contenido en una carpeta y abre `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
 | **Windows**, si prefieres la consola | `powercue.bat` | Doble clic, o desde cmd: `powercue.bat 45`. Un solo archivo. |
 | **Linux** | `powercue.sh` | `chmod +x powercue.sh` y luego `./powercue.sh`. Requiere bash 4+ y el `date` de GNU. |
-| **Python** | `powercue.pyw` | Solo si ya tienes Python 3 con tkinter: `python powercue.pyw`. Funciona en Windows y Linux, pero no se recomienda para el público general: instalar Python es un paso extra. |
+| **Python** | `powercue.pyw` | Solo si ya tienes Python 3.8 o superior con tkinter: `python powercue.pyw`. Funciona en Windows y Linux, pero no se recomienda para el público general: instalar Python es un paso extra. |
 
 En Windows no necesitas instalar nada más: la versión gráfica usa PowerShell, que ya viene con Windows 10 y 11.
 
@@ -103,7 +103,7 @@ Más detalles en [`docs/NOTAS-DE-DESARROLLO.md`](docs/NOTAS-DE-DESARROLLO.md).
 
 | Carpeta | Archivo | Qué es | Requisitos |
 |---|---|---|---|
-| `src/python/` | `powercue.pyw` | GUI en Python, versión principal y portable | Python 3 con tkinter (Windows y Linux; macOS básico, sin hibernar) |
+| `src/python/` | `powercue.pyw` | GUI en Python, versión principal y portable | Python 3.8 o superior con tkinter (Windows y Linux; macOS básico, sin hibernar) |
 | `src/powershell/` | `powercue.ps1` | GUI nativa de Windows (WinForms) | PowerShell 5.1. Guardar como UTF-8 con BOM y CRLF |
 | `src/powershell/` | `powercue-gui.bat` | Lanzador del `.ps1`; reenvía los argumentos | Debe estar junto a `powercue.ps1` |
 | `src/batch/` | `powercue.bat` | Versión de texto para Windows (ASCII, sin tildes) | Windows |

@@ -95,6 +95,7 @@ def main():
         z.write(LANZADOR, "PowerCue.bat")
         z.write(LEEME, "LEEME.txt")
         z.write(PS1, "lib/powercue.ps1")
+        z.write(ROOT / "LICENSE", "LICENSE")
 
     # Versiones de un solo archivo
     for f in (BAT, SH, PYW):
