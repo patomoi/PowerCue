@@ -13,10 +13,10 @@ Descarga el archivo que corresponda desde la sección **Releases** del repositor
 
 | Si usas… | Descarga | Cómo abrirlo |
 |---|---|---|
-| **Windows**, sin experiencia técnica | `PowerCue-<version>-windows.zip` | Extrae **todo** el contenido en una carpeta y abre `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
-| **Windows**, si prefieres la consola | `powercue.bat` | Doble clic, o desde cmd: `powercue.bat 45`. Un solo archivo. |
-| **Linux** | `powercue.sh` | `chmod +x powercue.sh` y luego `./powercue.sh`. Requiere bash 4+ y el `date` de GNU. |
-| **Python** | `powercue.pyw` | Solo si ya tienes Python 3.8 o superior con tkinter: doble click o desde CMD/terminal: `python powercue.pyw`. Funciona en Windows y Linux, requiere instalar Python 3.8+ y tkinter |
+| **Windows**, sin experiencia técnica y prefieres ventana gráfica | `PowerCue-<version>-windows.zip` | Extrae **todo** el contenido en una carpeta y abre `PowerCue.bat` con doble clic. Ventana gráfica; no instala nada. |
+| **Windows**, si prefieres la consola | `powercue.bat` | Consola. Doble clic o desde cmd: `powercue.bat 45`. Un solo archivo. |
+| **Linux** | `powercue.sh` | Terminal `chmod +x powercue.sh` y luego `./powercue.sh`. Requiere bash 4+ y el `date` de GNU. |
+| **Python** | `powercue.pyw` | Ventana gráfica. Doble clic o desde CMD/terminal: `python powercue.pyw`. Funciona en Windows y Linux, requiere instalar Python 3.8+ y tkinter |
 
 En Windows no necesitas instalar nada más: la versión gráfica usa PowerShell, que ya viene con Windows 10 y 11.
 
@@ -38,7 +38,9 @@ Cada release incluye `SHA256SUMS.txt` para verificar la descarga.
 4. El programa avisa a los **5 minutos** y al **minuto** final.
 5. Al llegar a cero hay un **aviso final de 30 segundos** donde puedes **posponer 5 minutos** o **cancelar** antes de que se ejecute la acción.
 
-Si cierras la ventana con un temporizador en marcha, el programa pregunta antes. Al salir, el temporizador se cancela y el PC no se toca.
+En las versiones gráficas si cierras la ventana con un temporizador en marcha, el programa pregunta antes. Al salir, el temporizador se cancela y el PC no se toca.
+
+En las versiones de consola, cerrar la ventana cancela el temporizador sin preguntar; el PC no se toca.
 
 ### Modo DEBUG
 
